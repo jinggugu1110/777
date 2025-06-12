@@ -11,7 +11,7 @@
 #include "conioex.h"
 
 //---------------------
-// É}ÉNÉçíËã`
+// „Éû„ÇØ„É≠ÂÆöÁæ©
 //---------------------
 #define PLAYER_COLOR	YELLOW
 
@@ -21,10 +21,10 @@
 #define LIFE_INIT	3600 //1 min	
 
 //---------------------
-// ÉOÉçÅ[ÉoÉãïœêîêÈåæ
+// „Ç∞„É≠„Éº„Éê„É´Â§âÊï∞ÂÆ£Ë®Ä
 //---------------------
 static charactor_t	Player;
-static bool			PlayerEscape;		// ESCÉLÅ[Ç™âüÇ≥ÇÍÇΩ
+static bool			PlayerEscape;		// ESC„Ç≠„Éº„ÅåÊäº„Åï„Çå„Åü
 
 static const char* aa[] = {
 	"    A    ",
@@ -37,7 +37,7 @@ int Coin;
 
 
 //===================================================================
-// èâä˙èàóù
+// ÂàùÊúüÂá¶ÁêÜ
 //===================================================================
 void PlayerInit(void)
 {
@@ -47,7 +47,7 @@ void PlayerInit(void)
 
 	CharactorSet(&Player, aa, LIGHTCYAN, LIFE_INIT,
 		PLAYER_SPEED_X, PLAYER_SPEED_Y);
-	CharactorFirstDraw(&Player, FIELD_WIDTH/2-4, FIELD_HEIGHT-10);	// ç≈â∫çsÇÃç∂í[Ç…ï\é¶Ç≥ÇπÇÈ
+	CharactorFirstDraw(&Player, FIELD_WIDTH/2-4, FIELD_HEIGHT-10);	// ÊúÄ‰∏ãË°å„ÅÆÂ∑¶Á´Ø„Å´Ë°®Á§∫„Åï„Åõ„Çã
 	LifeDraw(Player.life);// show HP
 	//Player.coin = 10;
 	CoinDraw(Player.coin);
@@ -58,7 +58,7 @@ void PlayerInit(void)
 
 }
 //===================================================================
-// èIóπèàóù
+// ÁµÇ‰∫ÜÂá¶ÁêÜ
 //===================================================================
 void PlayerEnd()
 {
@@ -67,7 +67,7 @@ void PlayerEnd()
 	SlotEnd();
 }
 //===================================================================
-// çXêVèàóù
+// Êõ¥Êñ∞Âá¶ÁêÜ
 //===================================================================
 void PlayerUpdate(void)
 {
@@ -97,7 +97,7 @@ void PlayerUpdate(void)
 			if (input(PK_DOWN))		move_y = 1;
 			if (input(PK_LEFT))		move_x = -1;
 			if (input(PK_RIGHT))	move_x = 1;
-			(void)isCharactorUpdate(&Player, move_x, move_y);//éŒÇﬂÇ≈Ç´ÇÈ
+			(void)isCharactorUpdate(&Player, move_x, move_y);//Êñú„ÇÅ„Åß„Åç„Çã
 			if (input(PK_SP)) {
 				BulletCreate(p->next_X + p->obj.width / 2, p->next_Y - 1);
 			
@@ -111,7 +111,7 @@ void PlayerUpdate(void)
 	
 }
 //===================================================================
-// ï\é¶èàóù
+// Ë°®Á§∫Âá¶ÁêÜ
 //===================================================================
 void PlayerDraw(void)
 {
@@ -177,7 +177,7 @@ void PlayerCoinDown(int enemy_life)
 void PlayerCoinPay()
 {
 	while (Player.live&& Player.isPay==1) {
-		Player.isPay == 0;
+		Player.isPay = 0;
 		Player.coin -= 50;
 		CoinDraw(Player.coin);
 		break;
